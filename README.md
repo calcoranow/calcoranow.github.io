@@ -2,158 +2,46 @@
 
 **在线地址：[https://calcoranow.com](https://calcoranow.com)**
 
-Calcora 是一个纯浏览器端运行的在线计算器集合，覆盖数学、金融、健康、单位换算、时间、编程、电学、物理、天文等 17 个分类，共 **380+ 个工具**。所有计算都在你的设备上完成——输入不会被上传，没有账号，没有服务端参与运算。
-
-> 本仓库（`calcoranow.github.io`）是 Calcora 的项目主页仓库；应用源码位于 [`calcnate/calculators`](https://github.com/calcnate/calculators)。
+Calcora 是一个在线计算器集合，覆盖数学、金融、健康、单位换算、时间、编程、电学、物理、天文等 17 个分类，共 380 余个工具。打开网页就能算，不需要注册，也不用安装任何东西。
 
 ---
 
-## 目录
+## 能做什么
 
-- [它解决什么问题](#它解决什么问题)
-- [核心特性](#核心特性)
-- [工具分类](#工具分类)
-- [技术栈](#技术栈)
-- [本地运行](#本地运行)
-- [构建与部署](#构建与部署)
-- [项目结构](#项目结构)
-- [新增一个计算器](#新增一个计算器)
-- [产品边界](#产品边界)
-- [License](#license)
-
----
-
-## 它解决什么问题
-
-网上的计算器大多被广告、弹窗、注册墙和"下载 App"打断，而且很多把简单公式包装成需要联网的接口。Calcora 的做法相反：
-
-- **一个公式一个页面**，打开就能算，默认值已经填好，首屏就有结果；
-- **输入即状态**，参数同步到 URL hash，把链接发给别人，对方看到的是同一组数字和同一个结果；
-- **能力诚实**：只做有确定公式的计算，不做"实时汇率""按年更新的税率表"这类会过期的假数据。
-
-## 核心特性
-
-| 特性 | 说明 |
+| 分类 | 内容与典型工具 |
 | --- | --- |
-| 纯前端计算 | 静态导出（`output: "export"`），无服务端、无 API 调用，计算不离开浏览器 |
-| 隐私优先 | 无账号、无 Cookie、无统计脚本、无指纹采集 |
-| 可分享的结果 | `useHashState` 把数值/枚举输入写入 URL hash，刷新和转发都不丢状态 |
-| 全站搜索 | 首页与 `/all` 共用一个可搜索目录，支持别名（`aliases`）命中，例如搜 "hcf" 也能找到 GCD/LCM |
-| 分类导航 | 17 个顶层分类，每个分类有独立索引页与网格视图 |
-| SEO 就绪 | 每个工具由脚本生成独立 `layout.tsx`（title / description / canonical / OG / JSON-LD），并自动生成 `sitemap.xml` 与 `robots.txt` |
+| **金融** | 房贷、车贷、个人贷款、摊销表、复利、APR / APY、存款与定存、退休储蓄、VAT、小费、信用卡还款 |
+| **数学** | 通用与科学计算器、百分比、分数、指数与对数、平方根、比值、质数、组合排列、一元二次方程、有效数字 |
+| **健康** | BMI、TDEE 与热量、BMR、宏量营养素、体脂率、蛋白质需求、理想体重、孕期与经期预测 |
+| **单位换算** | 长度、重量、温度、体积、面积、速度、时间、数据存储，以及一个统一的多维度换算器 |
+| **时间日期** | 日期差、年龄、工作日、时长加减、时区换算、倒计时 |
+| **编程辅助** | JSON 格式化、哈希、Base64、Cron 表达式、颜色转换、宽高比、UUID、IBAN 校验 |
+| **电学** | 欧姆定律、功率与电费、压降、kVA 与电流、导线线径、串并联电阻 |
+| **物理** | 速度、加速度、力、能量、功率、压强、密度、自由落体 |
+| **天文航天** | 轨道周期、逃逸速度、相对论时间膨胀、天文距离与视角 |
+| **AI** | 模型显存占用、训练算力与耗时、Token 与调用成本、困惑度、学习率 |
+| **几何** | 平面图形的面积与周长、立体体积与表面积、三角形求解 |
+| **统计** | 均值方差、分布、置信区间、z 值与 t 值、概率计算 |
+| **射频天线** | 天线长度、链路预算、驻波比、波长与频率换算 |
+| **网络** | 子网划分、带宽与下载时间、Wi-Fi 信道、端口参考 |
+| **安全** | 密码强度与生成、JWT 解析、哈希对比、WebAuthn 说明 |
+| **教育** | GPA 换算、GRE / SAT / ACT 分数换算、学习时间规划、阅读难度评估 |
+| **日常** | 平方英尺、混凝土与瓷砖用量、工时表、油耗与出行成本、屋顶坡度、宠物年龄 |
 
-## 工具分类
+所有工具都可以在首页搜索框里按名字或别名直接找到（例如输入 "hcf" 会给出 GCD/LCM），也可以从分类页浏览，全量清单在 [/all](https://calcoranow.com/all)。
 
-| 分类 | 直达 | 工具数 | 代表工具 |
-| --- | --- | ---: | --- |
-| Finance 金融 | [/finance](https://calcoranow.com/finance) | 79 | 房贷、车贷、贷款、复利、APR/APY、CD、401k、VAT、小费 |
-| Math 数学 | [/math](https://calcoranow.com/math) | 50 | 通用/科学计算器、百分比、分数、指数对数、质数、方程 |
-| Everyday 日常 | [/everyday](https://calcoranow.com/everyday) | 47 | 平方英尺、混凝土、工时表、油耗、屋顶坡度 |
-| Health 健康 | [/health](https://calcoranow.com/health) | 30 | BMI、TDEE、BMR、宏量营养素、体脂、孕期 |
-| Computer 编程 | [/computer](https://calcoranow.com/computer) | 24 | JSON、哈希、Cron、颜色、宽高比、IBAN 校验 |
-| Conversions 换算 | [/conversions](https://calcoranow.com/conversions) | 23 | 长度/重量/温度/体积/面积/速度/时间，含统一换算器 |
-| Physics 物理 | [/physics](https://calcoranow.com/physics) | 22 | 密度、速度、能量、功率、压强 |
-| Electricity 电学 | [/electricity](https://calcoranow.com/electricity) | 19 | 欧姆定律、压降、kVA↔A、线径、电费 |
-| Space 天文 | [/space](https://calcoranow.com/space) | 16 | 轨道、相对论、天文单位与观测 |
-| AI | [/ai](https://calcoranow.com/ai) | 12 | 模型显存/吞吐估算、Token 与上下文成本 |
-| Geometry 几何 | [/geometry](https://calcoranow.com/geometry) | 11 | 平面图形面积、周长、体积 |
-| Timers 时间 | [/timers](https://calcoranow.com/timers) | 10 | 日期差、年龄、时长、时区 |
-| Statistics 统计 | [/statistics](https://calcoranow.com/statistics) | 10 | 分布、置信区间、z/t 检验、概率 |
-| RF & Antenna 射频 | [/rf](https://calcoranow.com/rf) | 10 | 天线长度、链路预算、驻波比 |
-| Network 网络 | [/network](https://calcoranow.com/network) | 9 | 子网划分、带宽、Wi-Fi 信道、端口 |
-| Security 安全 | [/security](https://calcoranow.com/security) | 7 | 密码强度、JWT、哈希、WebAuthn |
-| Education 教育 | [/education](https://calcoranow.com/education) | 7 | GPA、成绩与学习规划 |
+## 用起来是什么感觉
 
-完整清单见 [/all](https://calcoranow.com/all)。
+- **即开即算**：每个工具都预填了一组合理的示例值，页面打开就能看到结果，改哪个数字结果立刻跟着变。
+- **公式写在页面上**：用的是各领域通行的标准公式（如等额本息还款、WHO 成人 BMI 区间、Mifflin–St Jeor 代谢公式），页面上会标出用的是哪一个。
+- **结果可以分享**：填好的参数会同步进网址，复制链接发给别人，对方打开就是同一组数字和同一个结果，刷新也不会丢。
+- **手机上一样好用**：单列布局，输入框和结果面板会随屏幕宽度调整。
+- **不打断你**：没有弹窗、没有先登录再看结果、不需要下载 App。
 
-## 技术栈
+## 关于隐私
 
-- **框架**：Next.js 16（App Router）+ React 19，启用 React Compiler
-- **语言**：TypeScript
-- **样式**：Tailwind CSS 4
-- **图标与图表**：lucide-react、Recharts（仅部分金融页面）
-- **渲染模式**：`output: "export"` 全静态导出到 `out/`
-- **托管**：Cloudflare Workers 静态资源（`wrangler.toml` 的 `[assets]` 指向 `./out`），历史方案 AWS CDK 仍保留在 `infra/`
+计算全部在浏览器里完成，你输入的数字不会被上传或存储。工具不使用 Cookie 或统计脚本建立用户画像，也不需要账号。分享链接里的参数放在网址的 `#` 之后，正常打开页面时这部分不会被发送出去。
 
-## 本地运行
+## 适用说明
 
-```bash
-npm install
-npm run dev
-```
-
-打开 [http://localhost:3000](http://localhost:3000)。
-
-其他常用命令：
-
-```bash
-npm run lint          # ESLint
-npm run seo:layouts   # 重新生成每个工具的 metadata layout
-npm run build         # prebuild 会自动跑 layouts + sitemap，再静态导出到 out/
-```
-
-## 构建与部署
-
-生产站点走 Cloudflare Workers 静态资源，**部署命令是 `npx wrangler deploy`**（不是 `wrangler pages deploy`）：
-
-```bash
-npx wrangler login
-npm run deploy        # = npm run build && npx wrangler deploy
-```
-
-Cloudflare 控制台侧的配置：
-
-| 配置项 | 值 |
-| --- | --- |
-| Framework preset | None |
-| Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
-| Node.js version | `20` |
-
-Canonical、Open Graph、JSON-LD、`robots.txt`、`sitemap.xml` 统一读取 `src/lib/seo.ts` 中的 `SITE_URL`（`https://calcoranow.com`）。Worker 上线后需在 Cloudflare 面板绑定 `calcoranow.com` 与 `www`。
-
-## 项目结构
-
-```
-calculators/
-├── src/app/                  # 每个分类一个目录，目录下每个工具一个 page.tsx
-│   ├── page.tsx              # 首页：搜索 + 分类 + 热门工具
-│   ├── all/                  # 全量目录
-│   ├── finance/ …/           # 分类索引 + 各工具页面
-│   └── layout.tsx
-├── src/components/           # CalculatorShell、SearchableGrid、Result 等通用外壳
-├── src/data/
-│   ├── calculators.ts        # 工具目录（search / sitemap / all 的唯一数据源）
-│   ├── seo-extras.ts         # 别名与 canonical 覆盖
-│   └── tool-content.ts       # 高流量页面的正文文案
-├── src/lib/                  # seo.ts（SITE_URL 等）、公式实现
-├── scripts/                  # generate-tool-layouts.ts、generate-sitemap.ts
-├── data/                     # 关键词调研原始数据（Keyword Planner 导出）
-├── docs/                     # 设计、SEO 覆盖与内容策略
-├── infra/                    # AWS CDK（旧部署方案）
-└── wrangler.toml             # Cloudflare Workers 静态资源配置
-```
-
-## 新增一个计算器
-
-一个工具要同时改到 4 个地方，缺一个就会出现"页面存在但搜不到 / 导航里没有"的情况：
-
-1. `src/app/{category}/{slug}/page.tsx` —— 工具本体，`"use client"`，包在 `CalculatorShell` 里；
-2. `src/data/calculators.ts` —— 目录条目（`title` / `description` / `href` / `icon` / `category`）；
-3. `src/app/{category}/page.tsx` —— 分类网格卡片（手工维护，不从目录派生）；
-4. 若是新图标，还需在 `src/components/CalculatorCard.tsx` 的 `iconMap` 中登记。
-
-约定：结果面板在输入非法时不显示 `NaN`；公式名写在页面上（如 "reducing-balance EMI"、"Mosteller"）；可分享的输入一律走 `useHashState`；不引入 `fetch`、`localStorage` 统计或第三方挂件。加完后执行 `npm run seo:layouts`（`prebuild` 已包含）。
-
-## 产品边界
-
-为了保持"打开就能信"的口碑，以下内容**不做**：
-
-- 需要实时数据的功能：实时汇率、股票/加密货币行情、WHOIS/DNS 查询、营养数据库接口；
-- 需要逐年维护的税率/费率表：各国所得税、印花税、社保与公积金计划；
-- 符号计算（CAS）：符号积分/求导、分步代数、LaTeX 排版求解；
-- 账号体系、云端保存、服务端 PDF 生成——不为凑关键词加后端。
-
-## License
-
-MIT
+Calcora 提供的是估算与参考结果，适合日常规划、学习和快速核对，不构成财务、法律或医疗建议。涉及合同、诊断、报税等决策时，请以专业人士或官方口径为准。
