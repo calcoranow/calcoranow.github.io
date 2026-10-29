@@ -1,47 +1,47 @@
 # Calcora
 
-**在线地址：[https://calcoranow.com](https://calcoranow.com)**
+**Live site: [https://calcoranow.com](https://calcoranow.com)**
 
-Calcora 是一个在线计算器集合，覆盖数学、金融、健康、单位换算、时间、编程、电学、物理、天文等 17 个分类，共 380 余个工具。打开网页就能算，不需要注册，也不用安装任何东西。
+Calcora is a collection of online calculators: 380+ tools across 17 categories — math, finance, health, unit conversion, time and dates, developer utilities, electronics, physics, astronomy, and more. Open the page and start calculating. No sign-up, nothing to install.
 
 ---
 
-## 能做什么
+## What's inside
 
-| 分类 | 内容与典型工具 |
+| Category | What you'll find |
 | --- | --- |
-| **金融** | 房贷、车贷、个人贷款、摊销表、复利、APR / APY、存款与定存、退休储蓄、VAT、小费、信用卡还款 |
-| **数学** | 通用与科学计算器、百分比、分数、指数与对数、平方根、比值、质数、组合排列、一元二次方程、有效数字 |
-| **健康** | BMI、TDEE 与热量、BMR、宏量营养素、体脂率、蛋白质需求、理想体重、孕期与经期预测 |
-| **单位换算** | 长度、重量、温度、体积、面积、速度、时间、数据存储，以及一个统一的多维度换算器 |
-| **时间日期** | 日期差、年龄、工作日、时长加减、时区换算、倒计时 |
-| **编程辅助** | JSON 格式化、哈希、Base64、Cron 表达式、颜色转换、宽高比、UUID、IBAN 校验 |
-| **电学** | 欧姆定律、功率与电费、压降、kVA 与电流、导线线径、串并联电阻 |
-| **物理** | 速度、加速度、力、能量、功率、压强、密度、自由落体 |
-| **天文航天** | 轨道周期、逃逸速度、相对论时间膨胀、天文距离与视角 |
-| **AI** | 模型显存占用、训练算力与耗时、Token 与调用成本、困惑度、学习率 |
-| **几何** | 平面图形的面积与周长、立体体积与表面积、三角形求解 |
-| **统计** | 均值方差、分布、置信区间、z 值与 t 值、概率计算 |
-| **射频天线** | 天线长度、链路预算、驻波比、波长与频率换算 |
-| **网络** | 子网划分、带宽与下载时间、Wi-Fi 信道、端口参考 |
-| **安全** | 密码强度与生成、JWT 解析、哈希对比、WebAuthn 说明 |
-| **教育** | GPA 换算、GRE / SAT / ACT 分数换算、学习时间规划、阅读难度评估 |
-| **日常** | 平方英尺、混凝土与瓷砖用量、工时表、油耗与出行成本、屋顶坡度、宠物年龄 |
+| **Finance** | Mortgages, auto and personal loans, amortization schedules, compound interest, APR / APY, savings and CDs, retirement, VAT, tips, credit card payoff |
+| **Math** | General and scientific calculators, percentages, fractions, exponents and logs, roots, ratios, primes, combinations and permutations, quadratic equations, significant figures |
+| **Health** | BMI, TDEE and calories, BMR, macros, body fat, protein needs, ideal weight, pregnancy and cycle dates |
+| **Conversions** | Length, weight, temperature, volume, area, speed, time, data storage, plus one unified multi-dimension converter |
+| **Timers** | Date difference, age, business days, duration arithmetic, world clocks, time zones, countdowns |
+| **Computer** | JSON formatting, hashing, Base64, cron expressions, color conversion, aspect ratio, UUIDs, IBAN validation |
+| **Electricity** | Ohm's law, power and energy cost, voltage drop, kVA to amps, wire gauge, resistor networks |
+| **Physics** | Velocity, acceleration, force, energy, power, pressure, density, free fall |
+| **Space** | Orbital period, escape velocity, relativistic time dilation, astronomical distances and angular size |
+| **AI** | Model memory footprint, training compute and time, token and API cost, perplexity, learning rate |
+| **Geometry** | Area and perimeter of plane shapes, volume and surface area of solids, triangle solving |
+| **Statistics** | Mean and variance, distributions, confidence intervals, z and t values, probability |
+| **RF & Antenna** | Antenna length, link budget, VSWR, wavelength to frequency |
+| **Network** | Subnetting, bandwidth and download time, Wi-Fi channels, port reference |
+| **Security** | Password strength and generation, JWT decoding, hash comparison, WebAuthn reference |
+| **Education** | GPA conversion, GRE / SAT / ACT score conversion, study time planning, reading level |
+| **Everyday** | Square footage, concrete and tile quantities, timesheets, fuel cost, roof pitch, pet age |
 
-所有工具都可以在首页搜索框里按名字或别名直接找到（例如输入 "hcf" 会给出 GCD/LCM），也可以从分类页浏览，全量清单在 [/all](https://calcoranow.com/all)。
+Every tool is searchable by name or alias from the homepage search box (typing `hcf` brings up GCD / LCM), and you can browse by category. The full list lives at [/all](https://calcoranow.com/all).
 
-## 用起来是什么感觉
+## How it feels to use
 
-- **即开即算**：每个工具都预填了一组合理的示例值，页面打开就能看到结果，改哪个数字结果立刻跟着变。
-- **公式写在页面上**：用的是各领域通行的标准公式（如等额本息还款、WHO 成人 BMI 区间、Mifflin–St Jeor 代谢公式），页面上会标出用的是哪一个。
-- **结果可以分享**：填好的参数会同步进网址，复制链接发给别人，对方打开就是同一组数字和同一个结果，刷新也不会丢。
-- **手机上一样好用**：单列布局，输入框和结果面板会随屏幕宽度调整。
-- **不打断你**：没有弹窗、没有先登录再看结果、不需要下载 App。
+- **A result on first load.** Every tool opens with a sensible set of example values already filled in, so you see an answer immediately and watch it update as you change a number.
+- **The formula is on the page.** Tools use the standard published formulas for their field — amortizing loan payment, WHO adult BMI bands, Mifflin–St Jeor for metabolism — and say which one they use.
+- **Results are shareable.** Your inputs are written into the URL, so you can bookmark a result or send the link to someone and they'll see the same numbers and the same answer. Reloading keeps them.
+- **It works on a phone.** Single-column layout; inputs and result panels reflow to the screen width.
+- **Nothing gets in the way.** No pop-ups, no "sign in to see your result", no app to download.
 
-## 关于隐私
+## Privacy
 
-计算全部在浏览器里完成，你输入的数字不会被上传或存储。工具不使用 Cookie 或统计脚本建立用户画像，也不需要账号。分享链接里的参数放在网址的 `#` 之后，正常打开页面时这部分不会被发送出去。
+All calculations run in your browser. The numbers you type are not uploaded or stored, and there are no accounts. Tools don't use cookies or analytics scripts to build a profile of you. In a shareable link the values sit after the `#` in the URL, which browsers don't send when a page is opened normally.
 
-## 适用说明
+## A note on the results
 
-Calcora 提供的是估算与参考结果，适合日常规划、学习和快速核对，不构成财务、法律或医疗建议。涉及合同、诊断、报税等决策时，请以专业人士或官方口径为准。
+Calcora gives estimates and reference figures — useful for day-to-day planning, studying, and quick sanity checks. It is not financial, legal, or medical advice. For contracts, diagnoses, or tax filings, rely on a qualified professional or the official rules.
